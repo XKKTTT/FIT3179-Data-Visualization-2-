@@ -2,8 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "A choropleth map of arrivals by country into Malaysia since 2020.",
     "title": "Travels into Malaysia: Total Arrivals by Country since 2020",
-    "width": 900,
-    "height": 500,
+    "width": 1200,
+    "height": 800,
     "layer": [
       {
         "data": {

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1200, "height": 800,
+    "data": {"url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/inbound-tourism-expenditure-of-visitors-by-products.csv"},
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "timeUnit": "year", "field": "Year",
+        "axis": {"domain": false, "format": "%Y", "tickSize": 0}
+      },
+      "y": {
+        "aggregate": "sum", "field": "Value in RM Million",
+        "axis": null,
+        "stack": "center"
+      },
+      "color": {"field":"Products", "scale":{"scheme": "category20b"}}
+    }
+  }
+  
