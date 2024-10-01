@@ -1,0 +1,261 @@
+Country,Year,Value
+ASEAN,2000,7194965
+ASEAN,2001,9208136
+ASEAN,2002,9878233
+ASEAN,2003,8033464
+ASEAN,2004,12491030
+ASEAN,2005,13238898
+ASEAN,2006,13856726
+ASEAN,2007,15620290
+ASEAN,2008,16636977
+ASEAN,2009,18386363
+ASEAN,2010,18937179
+ASEAN,2011,18885302
+ASEAN,2012,18809736
+ASEAN,2013,19105915
+ASEAN,2014,20372841
+ASEAN,2015,19146514
+ASEAN,2016,20271144
+ASEAN,2017,19478575
+ASEAN,2018,23610969
+ASEAN,2019,18308695
+Australia & New Zealand,2000,256126
+Australia & New Zealand,2001,252233
+Australia & New Zealand,2002,218951
+Australia & New Zealand,2003,163489
+Australia & New Zealand,2004,227908
+Australia & New Zealand,2005,299192
+Australia & New Zealand,2006,311890
+Australia & New Zealand,2007,361732
+Australia & New Zealand,2008,483193
+Australia & New Zealand,2009,596386
+Australia & New Zealand,2010,646847
+Australia & New Zealand,2011,639798
+Australia & New Zealand,2012,573674
+Australia & New Zealand,2013,589517
+Australia & New Zealand,2014,638776
+Australia & New Zealand,2015,547794
+Australia & New Zealand,2016,431079
+Australia & New Zealand,2017,407155
+Australia & New Zealand,2018,402198
+Australia & New Zealand,2019,418411
+Europe Continent(a),2000,343842
+Europe Continent(a),2001,434909
+Europe Continent(a),2002,337291
+Europe Continent(a),2003,284448
+Europe Continent(a),2004,275987
+Europe Continent(a),2005,312041
+Europe Continent(a),2006,354912
+Europe Continent(a),2007,474842
+Europe Continent(a),2008,528744
+Europe Continent(a),2009,587215
+Europe Continent(a),2010,0
+Europe Continent(a),2011,580058
+Europe Continent(a),2012,596819
+Europe Continent(a),2013,572448
+Europe Continent(a),2014,653787
+Europe Continent(a),2015,584191
+Europe Continent(a),2016,496581
+Europe Continent(a),2017,527858
+Europe Continent(a),2018,580734
+Europe Continent(a),2019,594351
+United Kingdom,2000,237757
+United Kingdom,2001,262423
+United Kingdom,2002,239294
+United Kingdom,2003,125569
+United Kingdom,2004,204409
+United Kingdom,2005,240030
+United Kingdom,2006,252035
+United Kingdom,2007,276213
+United Kingdom,2008,370591
+United Kingdom,2009,435091
+United Kingdom,2010,429965
+United Kingdom,2011,403940
+United Kingdom,2012,402207
+United Kingdom,2013,413472
+United Kingdom,2014,445789
+United Kingdom,2015,401019
+United Kingdom,2016,400269
+United Kingdom,2017,358818
+United Kingdom,2018,361335
+United Kingdom,2019,346485
+India,2000,132127
+India,2001,143513
+India,2002,183360
+India,2003,145153
+India,2004,192966
+India,2005,225789
+India,2006,279046
+India,2007,422452
+India,2008,550738
+India,2009,589838
+India,2010,690849
+India,2011,693056
+India,2012,691271
+India,2013,650989
+India,2014,770108
+India,2015,722141
+India,2016,638578
+India,2017,552739
+India,2018,600311
+India,2019,735309
+Japan,2000,455981
+Japan,2001,397639
+Japan,2002,354563
+Japan,2003,213527
+Japan,2004,301429
+Japan,2005,340027
+Japan,2006,354213
+Japan,2007,367567
+Japan,2008,433462
+Japan,2009,395746
+Japan,2010,415881
+Japan,2011,386974
+Japan,2012,470008
+Japan,2013,513076
+Japan,2014,553106
+Japan,2015,483569
+Japan,2016,413768
+Japan,2017,392777
+Japan,2018,394540
+Japan,2019,424694
+Taiwan,2000,213016
+Taiwan,2001,249811
+Taiwan,2002,209706
+Taiwan,2003,137419
+Taiwan,2004,190083
+Taiwan,2005,172456
+Taiwan,2006,181829
+Taiwan,2007,201311
+Taiwan,2008,190979
+Taiwan,2009,197869
+Taiwan,2010,211143
+Taiwan,2011,233783
+Taiwan,2012,242519
+Taiwan,2013,286266
+Taiwan,2014,274665
+Taiwan,2015,283224
+Taiwan,2016,300861
+Taiwan,2017,332927
+Taiwan,2018,383922
+Taiwan,2019,382916
+United States of America,2000,184100
+United States of America,2001,145827
+United States of America,2002,127920
+United States of America,2003,131071
+United States of America,2004,145094
+United States of America,2005,151354
+United States of America,2006,174336
+United States of America,2007,204844
+United States of America,2008,223249
+United States of America,2009,228571
+United States of America,2010,232965
+United States of America,2011,216755
+United States of America,2012,240134
+United States of America,2013,246936
+United States of America,2014,262106
+United States of America,2015,237768
+United States of America,2016,217075
+United States of America,2017,265259
+United States of America,2018,338089
+United States of America,2019,357496
+The People's Republic of China (PRC)(b),2000,76344
+The People's Republic of China (PRC)(b),2001,453246
+The People's Republic of China (PRC)(b),2002,674056
+The People's Republic of China (PRC)(b),2003,422624
+The People's Republic of China (PRC)(b),2004,630567
+The People's Republic of China (PRC)(b),2005,429616
+The People's Republic of China (PRC)(b),2006,528871
+The People's Republic of China (PRC)(b),2007,783788
+The People's Republic of China (PRC)(b),2008,949864
+The People's Republic of China (PRC)(b),2009,1019756
+The People's Republic of China (PRC)(b),2010,1130261
+The People's Republic of China (PRC)(b),2011,1250536
+The People's Republic of China (PRC)(b),2012,1558785
+The People's Republic of China (PRC)(b),2013,1791423
+The People's Republic of China (PRC)(b),2014,1613355
+The People's Republic of China (PRC)(b),2015,1677163
+The People's Republic of China (PRC)(b),2016,2124942
+The People's Republic of China (PRC)(b),2017,2281666
+The People's Republic of China (PRC)(b),2018,2944133
+The People's Republic of China (PRC)(b),2019,3114257
+South Korea,2000,0
+South Korea,2001,66343
+South Korea,2002,64301
+South Korea,2003,46246
+South Korea,2004,91270
+South Korea,2005,158177
+South Korea,2006,189464
+South Korea,2007,224867
+South Korea,2008,267461
+South Korea,2009,227312
+South Korea,2010,264052
+South Korea,2011,263428
+South Korea,2012,283977
+South Korea,2013,274622
+South Korea,2014,385769
+South Korea,2015,421161
+South Korea,2016,444439
+South Korea,2017,484528
+South Korea,2018,616783
+South Korea,2019,673065
+Saudi Arabia,2000,0
+Saudi Arabia,2001,39957
+Saudi Arabia,2002,45007
+Saudi Arabia,2003,20077
+Saudi Arabia,2004,39432
+Saudi Arabia,2005,53682
+Saudi Arabia,2006,67679
+Saudi Arabia,2007,78298
+Saudi Arabia,2008,74632
+Saudi Arabia,2009,77082
+Saudi Arabia,2010,86771
+Saudi Arabia,2011,87693
+Saudi Arabia,2012,102365
+Saudi Arabia,2013,94986
+Saudi Arabia,2014,113921
+Saudi Arabia,2015,99754
+Saudi Arabia,2016,123878
+Saudi Arabia,2017,100549
+Saudi Arabia,2018,112263
+Saudi Arabia,2019,121444
+Germany,2000,0
+Germany,2001,70401
+Germany,2002,54645
+Germany,2003,41145
+Germany,2004,53783
+Germany,2005,59344
+Germany,2006,66171
+Germany,2007,78598
+Germany,2008,111525
+Germany,2009,128288
+Germany,2010,130896
+Germany,2011,124670
+Germany,2012,131277
+Germany,2013,136749
+Germany,2014,158453
+Germany,2015,144910
+Germany,2016,130276
+Germany,2017,109816
+Germany,2018,128895
+Germany,2019,130221
+Other countries,2000,1127324
+Other countries,2001,1050635
+Other countries,2002,904683
+Other countries,2003,812685
+Other countries,2004,879448
+Other countries,2005,750349
+Other countries,2006,929689
+Other countries,2007,1878020
+Other countries,2008,1231073
+Other countries,2009,776674
+Other countries,2010,1400387
+Other countries,2011,948331
+Other countries,2012,929936
+Other countries,2013,1039061
+Other countries,2014,1194639
+Other countries,2015,972043
+Other countries,2016,764502
+Other countries,2017,655792
+Other countries,2018,295181
+Other countries,2019,493440
