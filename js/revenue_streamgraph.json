@@ -3,6 +3,11 @@
     "width": 1200, "height": 800,
     "data": {"url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/inbound-tourism-expenditure-of-visitors-by-products.csv"},
     "mark": "area",
+    "params": [{
+  "name": "Products",
+  "select": {"type": "point", "fields": ["Products"]},
+  "bind": "legend"
+}],
     "encoding": {
       "x": {
         "timeUnit": "year", "field": "Year",
@@ -13,7 +18,13 @@
         "axis": null,
         "stack": "center"
       },
-      "color": {"field":"Products", "scale":{"scheme": "category20b"}}
+      "color": {"field":"Products", "scale":{"scheme": "category20b"}},
+      "opacity": {
+  "condition": {"param": "Products", "value": 1},
+  "value": 0.2
+}
     }
+
+    
   }
   
