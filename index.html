@@ -16,6 +16,14 @@
         }).catch(console.error);
       </script>
 
+
+    <div id="arrivalsSOE"></div>
+    <script type="text/javascript">
+      vegaEmbed('#arrivalsSOE', "./js/arrivals_soe.vega").then(function(result) {
+      }).catch(console.error);
+    </script>
+
+
       <div id="streamGraph"></div>
       <script type="text/javascript">
         vegaEmbed('#streamGraph', "./js/revenue_streamgraph.json").then(function(result) {
