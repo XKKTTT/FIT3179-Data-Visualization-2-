@@ -4,7 +4,7 @@
     {"name": "Singapore", "group": 1, "index": 1},
     {"name": "Thailand", "group": 1, "index": 2}
   ],
-  "links": [
+  "edges": [
     {"source": 0, "target": 1, "value": 5000},
     {"source": 1, "target": 2, "value": 3000},
     {"source": 2, "target": 0, "value": 7000}
