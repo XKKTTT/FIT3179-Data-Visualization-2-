@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "State of Entry Arrivals (2010-2020)",
-  "width": 1200,
-  "height": 800,
+  "width": 900,
+  "height": 500,
   "params": [
     {
       "name": "Year_selection",

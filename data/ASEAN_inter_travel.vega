@@ -1,0 +1,27 @@
+{
+    "nodes": [
+      {"id": "Malaysia", "group": 1},
+      {"id": "Singapore", "group": 1},
+      {"id": "Thailand", "group": 1},
+      {"id": "Vietnam", "group": 1},
+      {"id": "Indonesia", "group": 1},
+      {"id": "Philippines", "group": 1},
+      {"id": "Brunei", "group": 1},
+      {"id": "Laos", "group": 1},
+      {"id": "Myanmar", "group": 1},
+      {"id": "Cambodia", "group": 1}
+    ],
+    "links": [
+      {"source": "Malaysia", "target": "Singapore", "value": 50000},
+      {"source": "Singapore", "target": "Malaysia", "value": 60000},
+      {"source": "Thailand", "target": "Malaysia", "value": 40000},
+      {"source": "Vietnam", "target": "Thailand", "value": 30000},
+      {"source": "Indonesia", "target": "Malaysia", "value": 20000},
+      {"source": "Philippines", "target": "Singapore", "value": 15000},
+      {"source": "Brunei", "target": "Malaysia", "value": 5000},
+      {"source": "Laos", "target": "Thailand", "value": 12000},
+      {"source": "Myanmar", "target": "Thailand", "value": 8000},
+      {"source": "Cambodia", "target": "Thailand", "value": 9000}
+    ]
+  }
+  

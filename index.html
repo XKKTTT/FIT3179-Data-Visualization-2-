@@ -1,34 +1,44 @@
-<!DOCTYPE html> <html lang="en"></html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script> <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script> <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-
-<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+</head>
+<body>
     <div id="title">
-    <h1>Total Arrivals into Malaysia</h1> 
+        <h1>Global Travels into Malaysia</h1>
     </div>
-    <div id="map"></div>
-    <script type="text/javascript">
-        vegaEmbed('#map', "./js/arrivals_choropleth_map.json").then(function(result) {
-        }).catch(console.error);
-      </script>
 
+    <div class="main_section">
+        <div class="visualization">
+            <div id="arrivalsSOE"></div>
+            <script type="text/javascript">
+                vegaEmbed('#arrivalsSOE', "./js/arrivals_by_km2.vega").then(function(result) {
+                }).catch(console.error);
+            </script>
+        </div>
 
-    <div id="arrivalsSOE"></div>
-    <script type="text/javascript">
-      vegaEmbed('#arrivalsSOE', "./js/arrivals_soe.vega").then(function(result) {
-      }).catch(console.error);
-    </script>
+        <div class="visualization">
+            <div id="map1"></div>
+            <script type="text/javascript">
+                vegaEmbed('#map1', "./js/arrivals_choropleth_map.json").then(function(result) {
+                }).catch(console.error);
+            </script>
+        </div>
 
-
-      <div id="streamGraph"></div>
-      <script type="text/javascript">
-        vegaEmbed('#streamGraph', "./js/revenue_streamgraph.json").then(function(result) {
-        }).catch(console.error);
-      </script>
-      
+        <div class="visualization">
+            <div id="map2"></div>
+            <script type="text/javascript">
+                vegaEmbed('#map2', "./js/revenue_streamgraph.json").then(function(result) {
+                }).catch(console.error);
+            </script>
+        </div>
+    </div>
 </body>
 </html>
