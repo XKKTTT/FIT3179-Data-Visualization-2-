@@ -1,1 +1,12 @@
-{"nodes":[{"name":"Brunei","group":1,"index":0},{"name":"Cambodia","group":1,"index":1},{"name":"Indonesia","group":1,"index":2},{"name":"Laos","group":1,"index":3},{"name":"Malaysia","group":1,"index":4},{"name":"Myanmar","group":1,"index":5},{"name":"Philippines","group":1,"index":6},{"name":"Singapore","group":1,"index":7},{"name":"Thailand","group":1,"index":8},{"name":"Vietnam","group":1,"index":9}],"links":[{"source":0,"target":4,"value":5000},{"source":1,"target":8,"value":8000},{"source":2,"target":7,"value":12000},{"source":3,"target":1,"value":6000},{"source":4,"target":8,"value":15000},{"source":5,"target":9,"value":3000},{"source":6,"target":2,"value":9000},{"source":7,"target":0,"value":7000},{"source":8,"target":4,"value":10000},{"source":9,"target":6,"value":11000},{"source":0,"target":7,"value":2000},{"source":1,"target":9,"value":2500},{"source":2,"target":4,"value":8000},{"source":3,"target":8,"value":4500},{"source":4,"target":2,"value":13000},{"source":5,"target":1,"value":5000},{"source":6,"target":7,"value":3500},{"source":7,"target":5,"value":4000},{"source":8,"target":9,"value":9500},{"source":9,"target":3,"value":2200}]}
+{
+  "nodes": [
+    {"name": "Malaysia", "group": 1, "index": 0},
+    {"name": "Singapore", "group": 1, "index": 1},
+    {"name": "Thailand", "group": 1, "index": 2}
+  ],
+  "links": [
+    {"source": 0, "target": 1, "value": 5000},
+    {"source": 1, "target": 2, "value": 3000},
+    {"source": 2, "target": 0, "value": 7000}
+  ]
+}
