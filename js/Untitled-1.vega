@@ -8,7 +8,7 @@
       {
         "name": "edges",
         "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/ASEAN_inter_travel.json",
-        "format": {"type": "vega", "property": "links"}
+        "format": {"type": "json", "property": "links"}
       },
       {
         "name": "sourceDegree",
