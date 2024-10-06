@@ -42,7 +42,7 @@
           },
           {
             "type": "formula", "as": "degree",
-            "expr": "datum.sourceDegree.count + datum.targetDegree.count"
+            "expr": "(datum.sourceDegree.count + datum.targetDegree.count)*10"
           }
         ]
       }
@@ -60,6 +60,18 @@
         "type": "ordinal",
         "range": "category",
         "domain": {"data": "nodes", "field": "group"}
+      },
+      {
+        "name": "linkWidth",
+        "type": "linear",
+        "domain": {"data": "edges", "field": "value"},
+        "range": [1, 10]  
+      },
+      {
+        "name": "linkColor",  
+        "type": "linear",
+        "domain": {"data": "edges", "field": "value"},
+        "range": ["lightgreen", "darkgreen"]  
       }
     ],
   
@@ -86,9 +98,9 @@
         "from": {"data": "edges"},
         "encode": {
           "update": {
-            "stroke": {"value": "#000"},
+            "stroke": {"scale": "linkColor", "field": "value"},
             "strokeOpacity": {"value": 0.2},
-            "strokeWidth": {"field": "value"}
+            "strokeWidth": {"scale": "linkWidth", "field": "value"}
           }
         },
         "transform": [
