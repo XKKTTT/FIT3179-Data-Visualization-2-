@@ -7,7 +7,7 @@
     "data": [
       {
         "name": "edges",
-        "url": "https://raw.githubusercontent.com/vega/vega/refs/heads/main/docs/data/miserables.json",
+        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/les_mis_dataset.json",
         "format": {"type": "json", "property": "links"}
       },
       {
@@ -26,7 +26,7 @@
       },
       {
         "name": "nodes",
-        "url": "https://raw.githubusercontent.com/vega/vega/refs/heads/main/docs/data/miserables.json",
+        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/les_mis_dataset.json",
         "format": {"type": "json", "property": "nodes"},
         "transform": [
           { "type": "window", "ops": ["rank"], "as": ["order"] },
