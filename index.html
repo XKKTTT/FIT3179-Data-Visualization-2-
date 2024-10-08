@@ -7,38 +7,65 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <title>Global Travels into Malaysia</title>
 </head>
 <body>
-    <div id="title">
-        <h1>Global Travels into Malaysia</h1>
-    </div>
-
-    <div class="main_section">
-        <div class="visualization">
-            <div id="arrivalsSOE"></div>
-            <script type="text/javascript">
-                vegaEmbed('#arrivalsSOE', "./js/arrivals_by_km2.vega").then(function(result) {
-                }).catch(console.error);
-            </script>
+    <header>
+        <div id="title">
+            <h1>Global Travels into Malaysia</h1>
+            <p>Explore the vibrant tourism landscape of Malaysia through interactive visualizations.</p>
         </div>
+    </header>
 
-        <div class="visualization">
-            <div id="map1"></div>
-            <script type="text/javascript">
-                vegaEmbed('#map1', "./js/arrivals_choropleth_map.json").then(function(result) {
-                }).catch(console.error);
-            </script>
-        </div>
+    <main class="main_section">
+        <section id="travelStatistics">
+            <div class="visualization">
+                <h2>Where do visitors come from?</h2>
+                <div id="dorling"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#dorling', "./js/dorling_arrivals.vega").catch(console.error);
+                </script>
+            </div>
 
-        <div class="visualization">
-            <div id="map2"></div>
-            <script type="text/javascript">
-                vegaEmbed('#map2', "./js/revenue_streamgraph.json").then(function(result) {
-                }).catch(console.error);
-            </script>
+
+            <div class="visualization">
+                <h2>Which states have the most arrivals?</h2>
+                <div id="arrivalsSOE"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#arrivalsSOE', "./js/arrivals_by_km2.vega").catch(console.error);
+                </script>
+            </div>
+        </section>
+
+        <section id="tourismInsights">
+
+            <div class="visualization">
+                <h2>Travel within ASEAN</h2>
+                <div id="arc"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#arc', "./js/asean_travel_arc.vega").catch(console.error);
+                </script>
+            </div>
+            <div class="visualization">
+                <h2>Revenue Stream Graph</h2>
+                <div id="map2"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#map2', "./js/revenue_streamgraph.json").catch(console.error);
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="contact">
+            <h3>Metadata</h3>
+            <p>Author: Xun Khang Tan.</p>
+            <p>Sources: Datasets taken from Malaysian government at data.gov.my</p>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
