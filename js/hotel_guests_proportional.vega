@@ -3,6 +3,18 @@
     "width": 800,
     "height": 450,
     "title": "International Hotel Guests in Malaysia by State",
+    "params": [
+      {
+        "name": "Year_selection",
+        "value": 2023,
+        "bind": {
+          "input": "range",
+          "min": 2020,
+          "max": 2024,
+          "step": 1,
+          "name": "Year:  "
+        }
+      }],
     "projection": {"type": "equalEarth"},
     "layer": [
       {
@@ -10,15 +22,15 @@
           "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
           "format": {"type": "topojson", "feature": "states"}
         },
-        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black"}
       },
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/blob/main/data/international_hotel_guests.csv",
+          "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/international_hotel_guests.csv",
           "format": {"type": "csv"}
         },
         "transform": [
-          {"filter": "datum.year == 2015"}  
+            {"filter": "datum.year == Year_selection"}
         ],
         "mark": {"type": "circle", "tooltip": {"content": "data"}},
         "encoding": {
@@ -28,7 +40,7 @@
             "field": "arrivals",
             "type": "quantitative",
             "title": "Number of Guests",
-            "scale": {"domain": [0, 1000000]}  
+            "scale": {"domain": [100, 100000]}  
           }
         }
       }

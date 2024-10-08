@@ -90,7 +90,7 @@
             "as": "arrivals_per_km2"
           }
         ],
-        "mark": {"type": "geoshape", "stroke": "#000000", "strokeWidth": 0.5},
+        "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.5},
         "encoding": {
           "shape": {"field": "geo", "type": "geojson"},
           "color": {
