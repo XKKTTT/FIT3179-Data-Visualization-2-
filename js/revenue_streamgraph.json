@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Economic Value of Different Tourism Products",
     "width": 900, 
     "height": 500,
     "data": {"url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/inbound-tourism-expenditure-of-visitors-by-products.csv"},

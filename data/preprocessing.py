@@ -22,7 +22,7 @@ df['year'] = df['date'].dt.year
 grouped_df = df.groupby(['soe', 'year'])['arrivals'].sum().reset_index()
 
 # Save the new DataFrame to a CSV file
-grouped_df.to_csv('soe_arrivals_by_year.csv', index=False)
+grouped_df.to_csv('soe_arrivals_by_year', index=False)
 
 # Print a preview of the new DataFrame
 print(grouped_df.head())

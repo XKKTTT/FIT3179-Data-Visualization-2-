@@ -4,6 +4,7 @@ body, h1, h2, h3, p {
     padding: 0;
 }
 
+
 body {
     display: flex;
     flex-direction: column;
@@ -14,6 +15,22 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     background-color: whitesmoke; 
+}
+
+#introduction {
+    background-color: #fdfaf4;
+    padding: 20px;
+    max-width: 1800px; 
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.text-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    color: #333;
 }
 
 
@@ -48,19 +65,19 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #94d2bd; /* Lighter teal on hover */
+    color: #94d2bd; 
 }
 
 
 #title {
     font-family: 'Playfair Display', Courier, monospace;
-    font-size: 1.5em; /* Adjust the size as needed */
+    font-size: 2em; 
     margin-bottom: 10px; 
 }
 
 #title p{
     font-family: 'Montserrat', Courier, monospace;
-    font-size: 1em; /* Adjust the size as needed */
+    font-size: 1em; 
     margin-bottom: 10px; 
 }
 
@@ -72,6 +89,7 @@ nav ul li a:hover {
     width: 100%; 
     padding: 20px; /* Add padding to the main section */
 }
+
 
 /* Visualization Card Styles */
 .visualization {

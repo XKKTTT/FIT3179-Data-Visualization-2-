@@ -22,9 +22,16 @@
     </header>
 
     <main class="main_section">
+
+        <section id="introduction">
+            <div class="text-section">
+                <p>With rich traditions, diverse landscapes, and thriving urban centers, Malaysia has long been a cultural melting pot and a top destination for global travelers. This visualisation explores how international hotel guests have shaped its tourism over the years. Explore the data and discover insights into the growing influx of visitors to various states in Malaysia.</p>
+            </div>
+        </section>
+        
         <section id="travelStatistics">
             <div class="visualization">
-                <h2>Where do visitors come from?</h2>
+                <h2> Since 2020: Total Global Visitors to Malaysia </h2>
                 <div id="dorling"></div>
                 <script type="text/javascript">
                     vegaEmbed('#dorling', "./js/dorling_arrivals.vega").catch(console.error);
@@ -33,15 +40,20 @@
 
 
             <div class="visualization">
-                <h2>Which states have the most arrivals?</h2>
+                <h2>States by Arrivals per Kilometer Squared</h2>
                 <div id="arrivalsSOE"></div>
                 <script type="text/javascript">
                     vegaEmbed('#arrivalsSOE', "./js/arrivals_by_km2.vega").catch(console.error);
                 </script>
             </div>
-        </section>
+            <div class="visualization">
+                <h2>States with the Highest Number of Hotel Guests</h2>
+                <div id="hotelGuests"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#hotelGuests', "./js/hotel_guests_proportional.vega").catch(console.error);
+                </script>
+            </div>
 
-        <section id="tourismInsights">
 
             <div class="visualization">
                 <h2>Travel within ASEAN</h2>

@@ -1,28 +1,27 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 450,
-    "title": "International Hotel Guests in Malaysia by State",
+    "width": 900,
+    "height": 500,
+    "projection": {"type": "equalEarth"},
     "params": [
       {
         "name": "Year_selection",
-        "value": 2023,
+        "value": 2019,
         "bind": {
           "input": "range",
-          "min": 2020,
-          "max": 2024,
+          "min": 2015,
+          "max": 2022,
           "step": 1,
           "name": "Year:  "
         }
       }],
-    "projection": {"type": "equalEarth"},
     "layer": [
       {
         "data": {
           "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
           "format": {"type": "topojson", "feature": "states"}
         },
-        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black"}
+        "mark": {"type": "geoshape", "fill": "lightgreen", "stroke": "white"}
       },
       {
         "data": {
@@ -30,18 +29,27 @@
           "format": {"type": "csv"}
         },
         "transform": [
-            {"filter": "datum.year == Year_selection"}
+          {
+            "calculate": "toNumber(replace(datum.arrivals, ',', ''))",
+            "as": "arrivals_numeric"
+          },            
+          {"filter": "datum.year == Year_selection"}
+
         ],
         "mark": {"type": "circle", "tooltip": {"content": "data"}},
         "encoding": {
           "longitude": {"field": "longitude", "type": "quantitative"},
           "latitude": {"field": "latitude", "type": "quantitative"},
           "size": {
-            "field": "arrivals",
+            "field": "arrivals_numeric",
             "type": "quantitative",
-            "title": "Number of Guests",
-            "scale": {"domain": [100, 100000]}  
-          }
+            "title": "Number of Hotel Guests",
+            "scale": {"domain": [0, 150000]}
+          },        
+          "tooltip": [
+            {"field": "state", "type": "nominal", "title": "State"},
+            {"field": "arrivals_numeric", "type": "quantitative", "title": "Number of Guests"}
+          ]
         }
       }
     ]

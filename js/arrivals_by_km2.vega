@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Arrivals Per Kilometer Squared By State of Entry Since 2020",
     "width": 900,
     "height": 500,
     "params": [
@@ -13,17 +12,6 @@
           "max": 2024,
           "step": 1,
           "name": "Year:  "
-        }
-      },
-      {
-        "name": "zoom_level",
-        "value": 3000,
-        "bind": {
-          "input": "range",
-          "min": 2000,
-          "max": 7000,
-          "step": 100,
-          "name": "Zoom: "
         }
       },
       {
@@ -42,7 +30,7 @@
     "projection": {
         "type": "equirectangular",
         "center": {"expr": "center_to"},
-        "scale": {"expr": "zoom_level"}
+        "scale": {"expr": "3000"}
       },
     "layer": [
       {

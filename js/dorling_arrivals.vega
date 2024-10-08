@@ -89,7 +89,7 @@
     "legends": [
       {
         "title": "Number of Arrivals",
-        "orient": "bottom-left",
+        "orient": "bottom-right",
         "type": "symbol",
         "size": "size",
         "fill": "color",
