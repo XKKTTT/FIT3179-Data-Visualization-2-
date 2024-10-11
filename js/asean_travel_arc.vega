@@ -65,7 +65,7 @@
       "name": "linkWidth",
       "type": "linear",
       "domain": {"data": "edges", "field": "value"},
-      "range": [1, 10]  
+      "range": [10, 15]  
     },
     {
       "name": "linkColor",  
@@ -137,9 +137,10 @@
       "encode": {
         "update": {
           "x": {"scale": "position", "field": "order"},
-          "y": {"value": 7},
-          "fontSize": {"value": 9},
+          "y": {"value": 40},
+          "fontSize": {"value": 20},
           "align": {"value": "right"},
+          "fontWeight": {"value": "bold"}, 
           "baseline": {"value": "middle"},
           "angle": {"value": -90},
           "text": {"field": "name"}

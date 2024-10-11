@@ -44,7 +44,7 @@
             "field": "arrivals_numeric",
             "type": "quantitative",
             "title": "Number of Hotel Guests",
-            "scale": {"domain": [0, 150000]}
+            "scale": {"domain": [0, 1000000]}
           },        
           "tooltip": [
             {"field": "state", "type": "nominal", "title": "State"},

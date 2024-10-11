@@ -1,10 +1,10 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "A Dorling cartogram depicting arrivals into Malaysia by country.",
-    "width": 1200,
-    "height": 800,
-    "autosize": "none",
-    "signals": [
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A Dorling cartogram depicting arrivals into Malaysia by country.",
+  "width": 1200,
+  "height": 800,
+  "autosize": "none",
+  "signals": [
     {
       "name": "zoom_level",
       "value": 10,
@@ -15,137 +15,147 @@
         "step": 1,
         "name": "Zoom: "
       }
+    },
+    {
+      "name": "min_arrivals",
+      "value": 10000,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 10000,
+        "step": 10,
+        "name": "Min Arrivals: "
+      }
     }
   ],
   
-    "data": [
-      {
-        "name": "countries",
-        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179_W9_hw-/refs/heads/main/js/ne_110m.json",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      },
-      {
-        "name": "arrivals",
-        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179_W9_hw-/refs/heads/main/data/aggregated_arrivals_by_country.csv",
-        "format": {"type": "csv"}
-      },
-      {
-        "name": "data",
-        "source": "arrivals",
-        "transform": [
-          {
-            "type": "filter",
-            "expr": "datum.arrivals >= 10"
-          },          
-          {
-            "type": "lookup",
-            "from": "countries",
-            "key": "properties.ISO_A3",
-            "fields": ["country"],
-            "as": ["geo"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.geo !== null"
-          },
-          {
-            "type": "formula",
-            "as": "centroid",
-            "expr": "geoCentroid('projection', datum.geo)"
-          },
-          {
-            "type": "formula",
-            "as": "scaled_arrivals",
-            "expr": "datum.arrivals"
-          }
-        ]
-      }
-    ],
-  
-    "projections": [
-      {
-        "name": "projection",
-        "type": "equalEarth",
-        "scale": {"signal": "250"}, 
-        "translate": [{"signal": "width / 3"}, {"signal": "height / 1.8"}]
-      }
-    ],
-  
-    "scales": [
-      {
-        "name": "size",
-        "type": "log",
-        "domain": {"data": "data", "field": "scaled_arrivals"},
-        "range": [100, 3500]
-      },    
-      {
-        "name": "color",
-        "type": "log",
-        "domain": {"data": "data", "field": "scaled_arrivals"},
-        "range": "ramp"
-      }
-    ],
-  
-    "legends": [
-      {
-        "title": "Number of Arrivals",
-        "orient": "bottom-right",
-        "type": "symbol",
-        "size": "size",
-        "fill": "color",
-        "clipHeight": 10
-      }
-    ],
-  
-    "marks": [
-      {
-        "name": "circles", 
-        "type": "symbol",
-        "from": {"data": "data"},
-        "encode": {
-          "enter": {
-            "size": {"scale": "size", "field": "arrivals"},
-            "fill": {"scale": "color", "field": "scaled_arrivals"},
-            "stroke": {"value": "blue"},
-            "strokeWidth": {"value": 1.5},
-            "x": {"field": "centroid[0]"},
-            "y": {"field": "centroid[1]"},
-            "tooltip": {
-              "signal": "'Arrivals: ' + datum.arrivals + ' Country: ' + datum.country"
-            }
-          }
+  "data": [
+    {
+      "name": "countries",
+      "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179_W9_hw-/refs/heads/main/js/ne_110m.json",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    {
+      "name": "arrivals",
+      "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179_W9_hw-/refs/heads/main/data/aggregated_arrivals_by_country.csv",
+      "format": {"type": "csv"}
+    },
+    {
+      "name": "data",
+      "source": "arrivals",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.arrivals >= min_arrivals"
         },
-        "transform": [
-          {
-            "type": "force",
-            "static": true,
-            "forces": [
-              {"force": "collide", "radius": {"expr": "1+ sqrt(datum.size) / 2.1"}},
-              {"force": "x", "x": "datum.centroid[0]"},
-              {"force": "y", "y": "datum.centroid[1]"}
-            ]
+        {
+          "type": "lookup",
+          "from": "countries",
+          "key": "properties.ISO_A3",
+          "fields": ["country"],
+          "as": ["geo"]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.geo !== null"
+        },
+        {
+          "type": "formula",
+          "as": "centroid",
+          "expr": "geoCentroid('projection', datum.geo)"
+        },
+        {
+          "type": "formula",
+          "as": "scaled_arrivals",
+          "expr": "datum.arrivals"
+        }
+      ]
+    }
+  ],
+
+  "projections": [
+    {
+      "name": "projection",
+      "type": "equalEarth",
+      "scale": {"signal": "250"}, 
+      "translate": [{"signal": "width / 3"}, {"signal": "height / 1.8"}]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "size",
+      "type": "log",
+      "domain": {"data": "data", "field": "scaled_arrivals"},
+      "range": [400, 4000]
+    },    
+    {
+      "name": "color",
+      "type": "log",
+      "domain": {"data": "data", "field": "scaled_arrivals"},
+      "range": "ramp"
+    }
+  ],
+
+  "legends": [
+    {
+      "title": "Number of Arrivals",
+      "orient": "bottom-right",
+      "type": "symbol",
+      "size": "size",
+      "fill": "color",
+      "clipHeight": 10
+    }
+  ],
+
+  "marks": [
+    {
+      "name": "circles", 
+      "type": "symbol",
+      "from": {"data": "data"},
+      "encode": {
+        "enter": {
+          "size": {"scale": "size", "field": "arrivals"},
+          "fill": {"scale": "color", "field": "scaled_arrivals"},
+          "stroke": {"value": "blue"},
+          "strokeWidth": {"value": 1.5},
+          "x": {"field": "centroid[0]"},
+          "y": {"field": "centroid[1]"},
+          "tooltip": {
+            "signal": "'Arrivals: ' + datum.arrivals + ' Country: ' + datum.country"
           }
-        ]
+        }
       },
-      {
-        "type": "text",
-        "interactive": false,
-        "from": {"data": "circles"},
-        "encode": {
-          "enter": {
-            "align": {"value": "center"},
-            "baseline": {"value": "middle"},
-            "fontSize": {"value": 7},
-            "fontWeight": {"value": "bolder"},
-            "fill": {"value": "white"}, 
-            "text": {"field": "datum.country"}
-          },
-          "update": {
-            "x": {"field": "x"},
-            "y": {"field": "y"}
-          }
+      "transform": [
+        {
+          "type": "force",
+          "static": true,
+          "forces": [
+            {"force": "collide", "radius": {"expr": "1+ sqrt(datum.size) / 2.1"}},
+            {"force": "x", "x": "datum.centroid[0]"},
+            {"force": "y", "y": "datum.centroid[1]"}
+          ]
         }
+      ]
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "from": {"data": "circles"},
+      "encode": {
+        "enter": {
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fontSize": {"value": 7},
+          "fontWeight": {"value": "bolder"},
+          "fill": {"value": "white"}, 
+          "text": {"field": "datum.country"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"}
         }
-    ]
-  }
-  
+      }
+    }
+  ]
+}
