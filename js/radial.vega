@@ -122,7 +122,10 @@
                 "text": {"signal": "datum.datum.value"},
                 "align": {"value": "center"},
                 "baseline": {"value": "middle"},
-                "fill": {"value": "black"}
+                "fill": {"value": "black"},
+                "fontSize": {"value": 15},  
+                "fontWeight": {"value": "bold"}, 
+                "font": {"value": "Arial"}  
               }
             }
           }
