@@ -1,60 +1,102 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A pyramid-style chart showing male and female visitor arrivals by Malaysian state in 2020.",
+    "description": "A population pyramid-like visualization for visitor data by state.",
     "data": {
-      "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/grouped_visitors_by_year_state.csv"
+      "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/grouped_visitors_by_year_state_gender.csv",
+      "format": {"type": "csv"}
     },
+    
+    "params": [
+      {
+        "name": "Year_selection",
+        "value": 2023,
+        "bind": {
+          "input": "range",
+          "min": 2020,
+          "max": 2023,
+          "step": 1,
+          "name": "Select Year: "
+        }
+      }
+    ],
+    
     "transform": [
-      {"filter": "datum.year == 2020"},
-      {"calculate": "'Male'", "as": "gender_male"},
-      {"calculate": "'Female'", "as": "gender_female"}
+      {"filter": "datum.year == Year_selection"},
+      {"calculate": "datum.gender == 'Female' ? 'Female' : 'Male'", "as": "gender"}
     ],
     "spacing": 0,
     "hconcat": [
       {
-        "transform": [{"filter": "datum.gender == 'Male'"}],
-        "title": "Male Visitors",
+        "transform": [
+          {"filter": {"field": "gender", "equal": "Female"}}
+        ],
+        "title": "Female",
         "mark": "bar",
+        "width": 500,
         "encoding": {
-          "y": {"field": "soe", "type": "ordinal", "axis": null},
-          "x": {
-            "field": "arrivals_male", 
-            "title": "Number of Arrivals",
-            "axis": {"format": "s"}
+          "y": {
+            "field": "soe", "axis": null, "sort": "descending"
           },
-          "color": {"value": "#1f77b4"}
+          "x": {
+            "aggregate": "sum", "field": "visitor_count",
+            "title": "Number of Visitors",
+            "axis": {"format": "s"},
+            "sort": "descending",
+            "scale": {"domain": [0, 10000000]}
+          },
+          "color": {
+            "field": "gender",
+            "scale": {"range": ["#ff6699", "#0099ff"]},
+            "legend": null
+          }
         }
       },
       {
-        "width": 50,
+        "width": 20,
         "view": {"stroke": null},
         "mark": {
-          "type": "text",
-          "align": "center"
+          "type": "text"
         },
         "encoding": {
-          "y": {"field": "soe", "type": "ordinal", "axis": null},
-          "text": {"field": "soe", "type": "ordinal"}
+          "y": {"field": "soe", "type": "ordinal", "axis": null, "sort": "descending"},
+          "text": {"field": "soe", "type": "nominal"}
+        },
+        "encode": {
+          "enter": {
+            "fontSize": {"value": 14},  
+            "fontWeight": {"value": "bold"},  
+            "align": {"value": "center"}
+          }
         }
       },
       {
-        "transform": [{"filter": "datum.gender == 'Female'"}],
-        "title": "Female Visitors",
+        "transform": [
+          {"filter": {"field": "gender", "equal": "Male"}}
+        ],
+        "title": "Male",
+        "width": 500,
         "mark": "bar",
         "encoding": {
-          "y": {"field": "soe", "type": "ordinal", "axis": null},
-          "x": {
-            "field": "arrivals_female", 
-            "title": "Number of Arrivals",
-            "axis": {"format": "s"}
+          "y": {
+            "field": "soe", "axis": null, "sort": "descending"
           },
-          "color": {"value": "#ff7f0e"}
+          "x": {
+            "aggregate": "sum", "field": "visitor_count",
+            "title": "Number of Visitors",
+            "axis": {"format": "s"}, 
+            "sort": "ascending",
+            "scale": {"domain": [0, 10000000]}
+          },
+          "color": {
+            "field": "gender",
+            "legend": null
+          }
         }
       }
     ],
     "config": {
-      "view": {"stroke": null},
-      "axis": {"grid": false}
+      "view": {"stroke": "black"},
+      "axis": {"grid": true}
     }
   }
   

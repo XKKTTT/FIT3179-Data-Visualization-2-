@@ -53,6 +53,22 @@
                 </script>
             </div>
 
+            <div class="visualization">
+                <h2> Male and Female Visitor Breakdown </h2>
+                <div id="pyramid"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#pyramid', "./js/pyramid.vega").catch(console.error);
+                </script>
+            </div>
+
+            <div class="visualization">
+                <h2> Average Length of Stay (Days) By Country </h2>
+                <div id="radial"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#radial', "./js/radial.vega").catch(console.error);
+                </script>
+            </div>
+
 
             <div class="visualization">
                 <h2>Travel within ASEAN</h2>
@@ -62,7 +78,7 @@
                 </script>
             </div>
             <div class="visualization">
-                <h2>Revenue Stream Graph</h2>
+                <h2>Tourism Revenue Broken into Categories</h2>
                 <div id="map2"></div>
                 <script type="text/javascript">
                     vegaEmbed('#map2', "./js/revenue_streamgraph.json").catch(console.error);

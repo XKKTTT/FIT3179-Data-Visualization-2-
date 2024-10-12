@@ -6,29 +6,17 @@
   "autosize": "none",
   "signals": [
     {
-      "name": "zoom_level",
-      "value": 10,
-      "bind": {
-        "input": "range",
-        "min": 10,
-        "max": 1000,
-        "step": 1,
-        "name": "Zoom: "
-      }
-    },
-    {
       "name": "min_arrivals",
-      "value": 10000,
+      "value": 100,
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 10000,
+        "max": 100000,
         "step": 10,
         "name": "Min Arrivals: "
       }
     }
   ],
-  
   "data": [
     {
       "name": "countries",
@@ -40,6 +28,7 @@
       "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179_W9_hw-/refs/heads/main/data/aggregated_arrivals_by_country.csv",
       "format": {"type": "csv"}
     },
+    
     {
       "name": "data",
       "source": "arrivals",
@@ -87,7 +76,7 @@
       "name": "size",
       "type": "log",
       "domain": {"data": "data", "field": "scaled_arrivals"},
-      "range": [400, 4000]
+      "range": [400, 6000]
     },    
     {
       "name": "color",
@@ -115,15 +104,15 @@
       "from": {"data": "data"},
       "encode": {
         "enter": {
-          "size": {"scale": "size", "field": "arrivals"},
+          "size": {"scale": "size", "field": "scaled_arrivals"},
           "fill": {"scale": "color", "field": "scaled_arrivals"},
           "stroke": {"value": "blue"},
           "strokeWidth": {"value": 1.5},
           "x": {"field": "centroid[0]"},
           "y": {"field": "centroid[1]"},
           "tooltip": {
-            "signal": "'Arrivals: ' + datum.arrivals + ' Country: ' + datum.country"
-          }
+            "signal": "'The country: ' + datum.country + ', Arrivals: ' + format(datum.arrivals, ',')"
+          } 
         }
       },
       "transform": [
@@ -140,13 +129,13 @@
     },
     {
       "type": "text",
-      "interactive": false,
+      "interactive": true,
       "from": {"data": "circles"},
       "encode": {
         "enter": {
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
-          "fontSize": {"value": 7},
+          "fontSize": {"value": 10},
           "fontWeight": {"value": "bolder"},
           "fill": {"value": "white"}, 
           "text": {"field": "datum.country"}
@@ -154,6 +143,91 @@
         "update": {
           "x": {"field": "x"},
           "y": {"field": "y"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 900},  
+          "y": {"value": 300},   
+          "text": {"value": "Most Malaysian visitors"}, 
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "font": {"value": "Montserrat"}
+
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 920},  
+          "y": {"value": 320},   
+          "text": {"value": "are of Asian origin"}, 
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "font": {"value": "Montserrat"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 645},  
+          "y": {"value": 520},   
+          "text": {"value": "Indonesia is the"}, 
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "font": {"value": "Montserrat"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 630},  
+          "y": {"value": 540},   
+          "text": {"value": "largest visiting group"}, 
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "font": {"value": "Montserrat"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 230},  
+          "y": {"value": 660},   
+          "text": {"value": "No South American country "}, 
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "font": {"value": "Montserrat"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 240},  
+          "y": {"value": 680},   
+          "text": {"value": " records over 36000 visits"}, 
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "font": {"value": "Montserrat"}
         }
       }
     }
