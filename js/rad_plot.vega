@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "Tourist expenditure by country in Malaysia - Radial Plot",
+    "width": 400,
+    "height": 400,
+    "padding": 20,
+  
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"country": "Singapore", "value": 19.9},
+          {"country": "Indonesia", "value": 65.6},
+          {"country": "China", "value": 685.1},
+          {"country": "Thailand", "value": 423.2},
+          {"country": "Brunei", "value": 889.1},
+          {"country": "India", "value": 678.9},
+          {"country": "South Korea", "value": 676.5},
+          {"country": "Japan", "value": 641.4},
+          {"country": "United Kingdom", "value": 613.8},
+          {"country": "Australia", "value": 723.9}
+        ],
+        "transform": [{"type": "pie", "field": "value"}]
+      }
+    ],
+  
+    "scales": [
+      {
+        "name": "r",
+        "type": "sqrt",
+        "domain": {"data": "table", "field": "value"},
+        "range": [20, 150] 
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "country"},
+        "range": {"scheme": "category10"} 
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "arc",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"signal": "width / 2"},
+            "y": {"signal": "height / 2"},
+            "startAngle": {"field": "startAngle"},
+            "endAngle": {"field": "endAngle"},
+            "innerRadius": {"value": 50},
+            "outerRadius": {"scale": "r", "field": "value"},
+            "stroke": {"value": "#fff"},
+            "fill": {"scale": "color", "field": "country"}  
+          }
+        }
+      },
+  
+      {
+        "type": "text",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"signal": "width / 2"},
+            "y": {"signal": "height / 2"},
+            "radius": {"scale": "r", "field": "value", "offset": 20},
+            "theta": {"signal": "(datum.startAngle + datum.endAngle)/2"},
+            "fill": {"value": "#000"},
+            "align": {"value": "center"},
+            "baseline": {"value": "middle"},
+            "text": {"field": "country"}
+          }
+        }
+      }
+    ]
+  }
+  
