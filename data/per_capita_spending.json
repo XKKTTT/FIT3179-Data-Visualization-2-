@@ -1,1 +1,72 @@
-[{"year":2015,"country":"Singapore","value":2282.4},{"year":2016,"country":"Singapore","value":2868.2},{"year":2017,"country":"Singapore","value":2969.7},{"year":2018,"country":"Singapore","value":2567.9},{"year":2015,"country":"Indonesia","value":2382.7},{"year":2016,"country":"Indonesia","value":2892.3},{"year":2017,"country":"Indonesia","value":3033.3},{"year":2018,"country":"Indonesia","value":3378.0},{"year":2015,"country":"China","value":3419.3},{"year":2016,"country":"China","value":3730.9},{"year":2017,"country":"China","value":3968.1},{"year":2018,"country":"China","value":4179.4},{"year":2015,"country":"Thailand","value":1879.5},{"year":2016,"country":"Thailand","value":1997.7},{"year":2017,"country":"Thailand","value":2262.4},{"year":2018,"country":"Thailand","value":1995.8},{"year":2015,"country":"Brunei","value":2523.7},{"year":2016,"country":"Brunei","value":2664.9},{"year":2017,"country":"Brunei","value":2248.8},{"year":2018,"country":"Brunei","value":2489.5},{"year":2015,"country":"India","value":3588.8},{"year":2016,"country":"India","value":4162.7},{"year":2017,"country":"India","value":4112.9},{"year":2018,"country":"India","value":4616.5},{"year":2015,"country":"South Korea","value":3199.3},{"year":2016,"country":"South Korea","value":3414.3},{"year":2017,"country":"South Korea","value":3234.9},{"year":2018,"country":"South Korea","value":4464.8},{"year":2015,"country":"Japan","value":3256.4},{"year":2016,"country":"Japan","value":3245.2},{"year":2017,"country":"Japan","value":3088.5},{"year":2018,"country":"Japan","value":4233.0},{"year":2015,"country":"United Kingdom","value":4404.0},{"year":2016,"country":"United Kingdom","value":4587.7},{"year":2017,"country":"United Kingdom","value":4644.8},{"year":2018,"country":"United Kingdom","value":5769.7},{"year":2015,"country":"Australia","value":4483.6},{"year":2016,"country":"Australia","value":4498.3},{"year":2017,"country":"Australia","value":4824.3},{"year":2018,"country":"Australia","value":4488.3}]
+[
+    {
+        "Country":"Singapore",
+        "2015 Per Capita Spending (RM)":2282.4,
+        "2016 Per Capita Spending (RM)":2868.2,
+        "2017 Per Capita Spending (RM)":2969.7,
+        "2018 Per Capita Spending (RM)":2567.9
+    },
+    {
+        "Country":"Indonesia",
+        "2015 Per Capita Spending (RM)":2382.7,
+        "2016 Per Capita Spending (RM)":2892.3,
+        "2017 Per Capita Spending (RM)":3033.3,
+        "2018 Per Capita Spending (RM)":3378.0
+    },
+    {
+        "Country":"China",
+        "2015 Per Capita Spending (RM)":3419.3,
+        "2016 Per Capita Spending (RM)":3730.9,
+        "2017 Per Capita Spending (RM)":3968.1,
+        "2018 Per Capita Spending (RM)":4179.4
+    },
+    {
+        "Country":"Thailand",
+        "2015 Per Capita Spending (RM)":1879.5,
+        "2016 Per Capita Spending (RM)":1997.7,
+        "2017 Per Capita Spending (RM)":2262.4,
+        "2018 Per Capita Spending (RM)":1995.8
+    },
+    {
+        "Country":"Brunei",
+        "2015 Per Capita Spending (RM)":2523.7,
+        "2016 Per Capita Spending (RM)":2664.9,
+        "2017 Per Capita Spending (RM)":2248.8,
+        "2018 Per Capita Spending (RM)":2489.5
+    },
+    {
+        "Country":"India",
+        "2015 Per Capita Spending (RM)":3588.8,
+        "2016 Per Capita Spending (RM)":4162.7,
+        "2017 Per Capita Spending (RM)":4112.9,
+        "2018 Per Capita Spending (RM)":4616.5
+    },
+    {
+        "Country":"South Korea",
+        "2015 Per Capita Spending (RM)":3199.3,
+        "2016 Per Capita Spending (RM)":3414.3,
+        "2017 Per Capita Spending (RM)":3234.9,
+        "2018 Per Capita Spending (RM)":4464.8
+    },
+    {
+        "Country":"Japan",
+        "2015 Per Capita Spending (RM)":3256.4,
+        "2016 Per Capita Spending (RM)":3245.2,
+        "2017 Per Capita Spending (RM)":3088.5,
+        "2018 Per Capita Spending (RM)":4233.0
+    },
+    {
+        "Country":"United Kingdom",
+        "2015 Per Capita Spending (RM)":4404.0,
+        "2016 Per Capita Spending (RM)":4587.7,
+        "2017 Per Capita Spending (RM)":4644.8,
+        "2018 Per Capita Spending (RM)":5769.7
+    },
+    {
+        "Country":"Australia",
+        "2015 Per Capita Spending (RM)":4483.6,
+        "2016 Per Capita Spending (RM)":4498.3,
+        "2017 Per Capita Spending (RM)":4824.3,
+        "2018 Per Capita Spending (RM)":4488.3
+    }
+]

@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Parallel coordinate plot for per capita spending by country across years.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/per_capita_spending.json",
+      "format": {"type": "json"}
+    },
+    "transform": [
+      {"filter": "datum.value != null"}
+    ],
+    "width": 600,
+    "height": 300,
+    "encoding": {
+      "color": {
+        "field": "country",
+        "type": "nominal",
+        "legend": {"title": "Country"}
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "line", "interpolate": "monotone"},
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "nominal",
+            "axis": {"title": "Year"}
+          },
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "axis": {"title": "Per Capita Spending (RM)"}
+          },
+          "detail": {"field": "country"},
+          "tooltip": [
+            {"field": "country", "type": "nominal", "title": "Country"},
+            {"field": "year", "type": "nominal", "title": "Year"},
+            {"field": "value", "type": "quantitative", "title": "Per Capita Spending"}
+          ]
+        }
+      }
+    ]
+  }
+  
