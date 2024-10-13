@@ -5,22 +5,36 @@
     "height": 400,
     "padding": 20,
   
+    "signals": [
+      {
+        "name": "selectedCountry",
+        "value": "Singapore",  
+        "bind": {
+          "input": "select",
+          "options": [
+            "Singapore", "Indonesia", "China", "Thailand", "Brunei", 
+            "India", "South Korea", "Japan", "United Kingdom", "Australia"
+          ],
+          "name": "Country: "
+        }
+      }
+    ],
+  
     "data": [
       {
         "name": "table",
-        "values": [
-          {"country": "Singapore", "value": 19.9},
-          {"country": "Indonesia", "value": 65.6},
-          {"country": "China", "value": 685.1},
-          {"country": "Thailand", "value": 423.2},
-          {"country": "Brunei", "value": 889.1},
-          {"country": "India", "value": 678.9},
-          {"country": "South Korea", "value": 676.5},
-          {"country": "Japan", "value": 641.4},
-          {"country": "United Kingdom", "value": 613.8},
-          {"country": "Australia", "value": 723.9}
-        ],
-        "transform": [{"type": "pie", "field": "value"}]
+        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/daily_expenditure_by_country.json",
+        "format": {"type": "json"},
+        "transform": [
+          {
+            "type": "filter",
+            "expr": "datum.country == selectedCountry" 
+          },
+          {
+            "type": "pie",
+            "field": "value" 
+          }
+        ]
       }
     ],
   
@@ -34,8 +48,8 @@
       {
         "name": "color",
         "type": "ordinal",
-        "domain": {"data": "table", "field": "country"},
-        "range": {"scheme": "category10"} 
+        "domain": {"data": "table", "field": "year"},  
+        "range": {"scheme": "tableau10"}
       }
     ],
   
@@ -52,11 +66,13 @@
             "innerRadius": {"value": 50},
             "outerRadius": {"scale": "r", "field": "value"},
             "stroke": {"value": "#fff"},
-            "fill": {"scale": "color", "field": "country"}  
+            "fill": {"scale": "color", "field": "year"},
+            "tooltip": {
+            "signal": "{'Year': datum.year, 'Spending Per Day': datum.value + ' RM'}"
+          }
           }
         }
       },
-  
       {
         "type": "text",
         "from": {"data": "table"},
@@ -69,7 +85,10 @@
             "fill": {"value": "#000"},
             "align": {"value": "center"},
             "baseline": {"value": "middle"},
-            "text": {"field": "country"}
+            "text": {"field": "year"}, 
+            "fontSize": {"value":20},  
+            "fontWeight": {"value": "bold"}, 
+            "font": {"value": "Montserrat"} 
           }
         }
       }

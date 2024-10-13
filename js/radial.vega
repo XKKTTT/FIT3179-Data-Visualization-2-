@@ -123,9 +123,9 @@
                 "align": {"value": "center"},
                 "baseline": {"value": "middle"},
                 "fill": {"value": "black"},
-                "fontSize": {"value": 15},  
+                "fontSize": {"value":20},  
                 "fontWeight": {"value": "bold"}, 
-                "font": {"value": "Arial"}  
+                "font": {"value": "Montserrat"}  
               }
             }
           }

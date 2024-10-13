@@ -62,10 +62,18 @@
             </div>
 
             <div class="visualization">
-                <h2> Average Length of Stay (Days) By Country </h2>
+                <h2> Average Tourist Length of Stay (Days) By Top 10 Markets </h2>
                 <div id="radial"></div>
                 <script type="text/javascript">
                     vegaEmbed('#radial', "./js/radial.vega").catch(console.error);
+                </script>
+            </div>
+
+            <div class="visualization">
+                <h2> Average Tourist Spending Per Day By Top 10 Markets </h2>
+                <div id="rad_plot"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#rad_plot', "./js/rad_plot.vega").catch(console.error);
                 </script>
             </div>
 
