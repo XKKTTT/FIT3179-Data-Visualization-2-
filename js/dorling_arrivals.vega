@@ -3,6 +3,7 @@
   "description": "A Dorling cartogram depicting arrivals into Malaysia by country.",
   "width": 1200,
   "height": 800,
+  
   "autosize": "none",
   "signals": [
     {
@@ -89,11 +90,11 @@
   "legends": [
     {
       "title": "Number of Arrivals",
-      "orient": "bottom-right",
+      "orient": "bottom-left",
       "type": "symbol",
       "size": "size",
       "fill": "color",
-      "clipHeight": 10
+      "clipHeight": 20
     }
   ],
 

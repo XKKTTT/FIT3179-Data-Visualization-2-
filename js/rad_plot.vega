@@ -4,6 +4,7 @@
     "width": 400,
     "height": 400,
     "padding": 20,
+    "background": "#fdfaf4",
   
     "signals": [
       {

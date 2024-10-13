@@ -1,175 +1,168 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 900,
-    "height": 500,
-    "params": [
-      {
-        "name": "Year_selection",
-        "value": 2023,
-        "bind": {
-          "input": "range",
-          "min": 2020,
-          "max": 2024,
-          "step": 1,
-          "name": "Year:  "
-        }
-      },
-      {
-        "name": "center_to",
-        "value": [107.9758, 4.2105],
-        "bind": {
-          "input": "select",
-          "options": [
-            [107.3758, 3.8353],  [102.9925, 4.2141], [114.6076, 4.6406]
-          ],
-          "labels": ["Malaysia", "West Malaysia", "East Malaysia"],
-          "name": "Map Centre: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 900,
+  "height": 500,
+  "background": "#87CEEB",
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2020,
+        "max": 2024,
+        "step": 1,
+        "name": "Year:  "
       }
-    ],
-    "projection": {
-        "type": "equirectangular",
-        "center": {"expr": "center_to"},
-        "scale": {"expr": "3000"}
-      },
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
-          "format": {"type": "topojson", "feature": "states"}
-        },
-        "transform": [
-          {
-            "calculate": "'Data is not available for the state: ' + datum.properties.Name",
-            "as": "note"
-          }
+    },
+    {
+      "name": "center_to",
+      "value": [107.9758, 4.2105],
+      "bind": {
+        "input": "select",
+        "options": [
+          [107.3758, 3.8353],  [102.9925, 4.2141], [114.6076, 4.6406]
         ],
-        "mark": {
-          "type": "geoshape",
-          "fill": "#ddd",
-          "stroke": "white",
-          "strokeWidth": 1
-        },
-        "encoding": {"tooltip": {"field": "note"}}
+        "labels": ["Malaysia", "West Malaysia", "East Malaysia"],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+      "type": "equirectangular",
+      "center": {"expr": "center_to"},
+      "scale": {"expr": "3000"}
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
+        "format": {"type": "topojson", "feature": "states"}
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/main/data/soe_arrivals_by_year.csv",
-          "format": {"type": "csv"}
+      "transform": [
+        {
+          "calculate": "'Data is not available for the state: ' + datum.properties.Name",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ddd",
+        "stroke": "black",
+        "strokeWidth": 2
+      },
+      "encoding": {"tooltip": {"field": "note"}}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/main/data/soe_arrivals_by_year.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {
+          "lookup": "soe",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "states"
+              }
+            },
+            "key": "properties.Name"
+          },
+          "as": "geo"
         },
-        "transform": [
-          {
-            "lookup": "soe",
-            "from": {
-              "data": {
-                "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
-                "format": {
-                  "type": "topojson",
-                  "feature": "states"
-                }
-              },
-              "key": "properties.Name"
-            },
-            "as": "geo"
+        {"filter": "datum.year == Year_selection"},
+        {
+          "calculate": "datum.arrivals / datum.size",
+          "as": "arrivals_per_km2"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.5},
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "title": "Arrivals Per Km Squared (log)",
+          "field": "arrivals_per_km2",
+          "type": "quantitative",
+          "scale": {
+            "type": "log", 
+            "domain": [1, 1000], 
+            "scheme": "greens"
           },
-          {"filter": "datum.year == Year_selection"},
-          {
-            "calculate": "datum.arrivals / datum.size",
-            "as": "arrivals_per_km2"
+          "legend": {
+            "format": ".2s",
+            "orient": "bottom-right",
+            "titleFontSize": 14,
+            "labelFontSize": 12,
+            "labelFont": "Montserrat",
+            "symbolSize": 200,
+            "titleFontWeight": "bold",
+            "padding": 10
           }
-        ],
-        "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.5},
-        "encoding": {
-          "shape": {"field": "geo", "type": "geojson"},
-          "color": {
-            "title": "Arrivals Per Km Squared (log)",
-            "field": "arrivals_per_km2",
-            "type": "quantitative",
-            "scale": {
-              "type": "log", 
-              "domain": [1, 1000], 
-              "scheme": "greens"
-            },
-            "legend": {"format": ".2s"}
-          },
-          "tooltip": [
-          {
-              "field": "soe",
-              "type": "nominal",
-              "title": "State: "
-          },
+        },
+        "tooltip": [
+          {"field": "soe", "type": "nominal", "title": "State"},
           {
             "field": "arrivals_per_km2",
             "type": "quantitative",
             "title": "Arrivals Per Km2: ",
             "format": ".2f"
-        },
-          {
-              "field": "arrivals",
-              "type": "quantitative",
-              "title": "Total Number of Arrivals: ",
-              "format": ","
           },
           {
-              "field": "year",
-              "type": "quantitative",
-              "title": "Year: "
-          }
-      ]
-        }
-      },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/main/data/soe_arrivals_by_year.csv",
-          "format": {"type": "csv"}
-        },
-        "transform": [
-          {"filter": "datum.year == Year_selection"},
-          {
-            "calculate": "datum.arrivals / datum.size",
-            "as": "arrivals_per_km2" },
-          {
-            "window": [
-              {"op": "max", "field":"arrivals_per_km2", "as": "max_arrivals_per_km2"}
-            ],
-            "frame": [null, null]
+            "field": "arrivals",
+            "type": "quantitative",
+            "title": "Total Number of Arrivals: ",
+            "format": ","
           },
-          {
-            "filter": "datum.arrivals_per_km2 == datum.max_arrivals_per_km2"
-          },
-          {
-            "calculate": "'In ' + datum.year + ', '+ datum.soe + ' has the ; most visitors per km2 at ' + round(datum.max_arrivals_per_km2 * 100) / 100",
-            "as": "text_annotation_raw"
-          },
-          {
-            "calculate": "split(datum.text_annotation_raw, ';')",
-            "as": "text_annotation"
-          }
-        ],
-        "mark": {
-          "type": "text",
-          "align": "right",
-          "baseline": "bottom",
-          "dx": -8,
-          "dy": -8,
-          "fontSize": 12,
-          "fontWeight": "bold",
-          "color": "black"
-        },
-        "encoding": {
-          "text": {"field": "text_annotation"}
-        }
+          {"field": "year", "type": "quantitative", "title": "Year: "}
+        ]
       }
-      
-      
-  
-      
-      
-    ],
-    "config": {
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/main/data/soe_arrivals_by_year.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"filter": "datum.year == Year_selection"},
+        {
+          "calculate": "datum.arrivals / datum.size",
+          "as": "arrivals_per_km2" },
+        {
+          "window": [
+            {"op": "max", "field":"arrivals_per_km2", "as": "max_arrivals_per_km2"}
+          ],
+          "frame": [null, null]
+        },
+        {
+          "filter": "datum.arrivals_per_km2 == datum.max_arrivals_per_km2"
+        },
+        {
+          "calculate": "'In ' + datum.year + ', '+ datum.soe + ' has the ; most visitors per km2 at ' + round(datum.max_arrivals_per_km2 * 100) / 100",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw, ';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -8,
+        "dy": -8,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "black"
+      },
+      "encoding": {
+        "text": {"field": "text_annotation"}
+      }
     }
+  ],
+  "config": {
   }
-  
-  
-  
-  
+}

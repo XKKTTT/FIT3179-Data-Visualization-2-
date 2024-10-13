@@ -1,57 +1,67 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 900,
-    "height": 500,
-    "projection": {"type": "equalEarth"},
-    "params": [
-      {
-        "name": "Year_selection",
-        "value": 2019,
-        "bind": {
-          "input": "range",
-          "min": 2015,
-          "max": 2022,
-          "step": 1,
-          "name": "Year:  "
-        }
-      }],
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
-          "format": {"type": "topojson", "feature": "states"}
-        },
-        "mark": {"type": "geoshape", "fill": "lightgreen", "stroke": "white"}
-      },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/international_hotel_guests.csv",
-          "format": {"type": "csv"}
-        },
-        "transform": [
-          {
-            "calculate": "toNumber(replace(datum.arrivals, ',', ''))",
-            "as": "arrivals_numeric"
-          },            
-          {"filter": "datum.year == Year_selection"}
-
-        ],
-        "mark": {"type": "circle", "tooltip": {"content": "data"}},
-        "encoding": {
-          "longitude": {"field": "longitude", "type": "quantitative"},
-          "latitude": {"field": "latitude", "type": "quantitative"},
-          "size": {
-            "field": "arrivals_numeric",
-            "type": "quantitative",
-            "title": "Number of Hotel Guests",
-            "scale": {"domain": [0, 1000000]}
-          },        
-          "tooltip": [
-            {"field": "state", "type": "nominal", "title": "State"},
-            {"field": "arrivals_numeric", "type": "quantitative", "title": "Number of Guests"}
-          ]
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 900,
+  "height": 500,
+  "background": "#87CEEB",
+  "projection": {"type": "equalEarth"},
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2019,
+      "bind": {
+        "input": "range",
+        "min": 2015,
+        "max": 2022,
+        "step": 1,
+        "name": "Year:  "
       }
-    ]
-  }
-  
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
+        "format": {"type": "topojson", "feature": "states"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgreen", "stroke": "black","strokeWidth": 1
+    }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/international_hotel_guests.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {
+          "calculate": "toNumber(replace(datum.arrivals, ',', ''))",
+          "as": "arrivals_numeric"
+        },            
+        {"filter": "datum.year == Year_selection"}
+      ],
+      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "arrivals_numeric",
+          "type": "quantitative",
+          "title": "Number of Hotel Guests",
+          "scale": {"domain": [0, 1000000]},
+          "legend": {
+            "orient": "bottom-right",
+            "titleFontSize": 14,
+            "labelFontSize": 14,
+            "labelFont": "Montserrat",
+            "symbolSize": 500,
+            "titleFontWeight": "bold",
+            "padding": 10
+          }
+        },        
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "arrivals_numeric", "type": "quantitative", "title": "Number of Guests"}
+        ]
+      }
+    }
+  ]
+}
