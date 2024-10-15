@@ -112,7 +112,7 @@
           "x": {"field": "centroid[0]"},
           "y": {"field": "centroid[1]"},
           "tooltip": {
-            "signal": "'The country: ' + datum.country + ', Arrivals: ' + format(datum.arrivals, ',')"
+            "signal": "'Country: ' + datum.country + ', Arrivals: ' + format(datum.arrivals, ',')"
           } 
         }
       },
