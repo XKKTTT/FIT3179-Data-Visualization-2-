@@ -1,14 +1,34 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "An arc diagram depicting character co-occurrence in the novel Les Misérables.",
+  "description": "An arc diagram depicting ASEAN travel data with a year filter.",
   "width": 770,
   "padding": 5,
+
+  "signals": [
+    {
+      "name": "selectedYear",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2020,
+        "max": 2023,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
 
   "data": [
     {
       "name": "edges",
       "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/asean_travel_output.json",
-      "format": {"type": "json", "property": "links"}
+      "format": {"type": "json", "property": "links"},
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.year === selectedYear"
+        }
+      ]
     },
     {
       "name": "sourceDegree",
@@ -65,13 +85,13 @@
       "name": "linkWidth",
       "type": "linear",
       "domain": {"data": "edges", "field": "value"},
-      "range": [10, 15]  
+      "range": [10, 15]
     },
     {
-      "name": "linkColor",  
+      "name": "linkColor",
       "type": "linear",
       "domain": {"data": "edges", "field": "value"},
-      "range": ["lightgreen", "darkgreen"]  
+      "range": ["lightgreen", "darkgreen"]
     }
   ],
 
@@ -100,12 +120,17 @@
         "update": {
           "stroke": {"scale": "linkColor", "field": "value"},
           "strokeOpacity": {"value": 0.2},
-          "strokeWidth": {"scale": "linkWidth", "field": "value"}
+          "strokeWidth": {"scale": "linkWidth", "field": "value"},
+          "tooltip": {
+            "signal": "'Total Incoming and Outgoing Arrivals: ' + datum.value"
+          }
         }
       },
       "transform": [
         {
-          "type": "lookup", "from": "layout", "key": "datum.index",
+          "type": "lookup",
+          "from": "layout",
+          "key": "datum.index",
           "fields": ["datum.source", "datum.target"],
           "as": ["sourceNode", "targetNode"]
         },
@@ -127,7 +152,10 @@
           "x": {"field": "x"},
           "y": {"field": "y"},
           "fill": {"field": "fill"},
-          "size": {"field": "size"}
+          "size": {"field": "size"},
+          "tooltip": {
+            "signal": "'Node: ' + datum.name"
+          }
         }
       }
     },
@@ -140,9 +168,9 @@
           "y": {"value": 40},
           "fontSize": {"value": 20},
           "align": {"value": "right"},
-          "fontWeight": {"value": "bold"}, 
+          "fontWeight": {"value": "bold"},
           "baseline": {"value": "middle"},
-          "angle": {"value": -90},
+          "angle": {"value": -35},
           "text": {"field": "name"}
         }
       }

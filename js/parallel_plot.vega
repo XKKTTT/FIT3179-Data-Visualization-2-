@@ -1,25 +1,167 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Parallel coordinate plot showing per capita spending by country across years with the same y-axis scale.",
+  "background": "#fdfaf4",
+  "width": 900,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/per_capita_spending.json",
     "format": {"type": "json"}
   },
-  "background": "#fdfaf4",
-  "width": 600,
-  "height": 300,
   "transform": [
-    {"fold": ["2015 Per Capita Spending (RM)", "2016 Per Capita Spending (RM)", "2017 Per Capita Spending (RM)", "2018 Per Capita Spending (RM)"], "as": ["Year", "value"]}
+    {
+      "fold": [
+        "2015 Per Capita Spending (RM)",
+        "2016 Per Capita Spending (RM)",
+        "2017 Per Capita Spending (RM)",
+        "2018 Per Capita Spending (RM)"
+      ],
+      "as": ["Year", "value"]
+    }
+  ],
+  "params": [{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Parallel coordinate plot showing per capita spending by country across years with the same y-axis scale.",
+    "background": "#fdfaf4",
+    "width": 900,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/XKKTTT/FIT3179-Data-Visualization-2-/refs/heads/main/data/per_capita_spending.json",
+      "format": {"type": "json"}
+    },
+    "transform": [
+      {
+        "fold": [
+          "2015 Per Capita Spending (RM)",
+          "2016 Per Capita Spending (RM)",
+          "2017 Per Capita Spending (RM)",
+          "2018 Per Capita Spending (RM)"
+        ],
+        "as": ["Year", "value"]
+      }
+    ],
+    "params": [{
+      "name": "CountrySelection",
+      "select": {"type": "point", "fields": ["Country"]},
+      "bind": "legend",
+      "value": "Singapore"
+    }],
+    "encoding": {
+      "color": {
+        "field": "Country",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "Singapore",
+            "Indonesia",
+            "China",
+            "Thailand",
+            "Brunei",
+            "India",
+            "South Korea",
+            "Japan",
+            "United Kingdom",
+            "Australia"
+          ],
+          "range": [
+            "#1f77b4",
+            "#ff7f0e",
+            "#2ca02c",
+            "#d62728",
+            "#9467bd",
+            "#8c564b",
+            "#e377c2",
+            "#7f7f7f",
+            "black",
+            "#17becf"
+          ]
+        },
+        "legend": {"title": "Country"}
+      },
+      "opacity": {
+        "condition": {"param": "CountrySelection", "value": 1},
+        "value": 0.2
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "rule", "color": "black"},
+        "encoding": {
+          "x": {"field": "Year", "type": "nominal"}
+        }
+      },
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "type": "nominal",
+            "field": "Year",
+            "axis": {
+              "labelFontWeight": "bold",
+              "labelFont": "Arial",
+              "labelFontSize": 12
+            }
+          },
+          "y": {
+            "type": "quantitative",
+            "field": "value",
+            "axis": {"title": "Per Capita Spending (RM)"},
+            "scale": {"domain": [1500, 6000]}
+          },
+          "color": {"type": "nominal", "field": "Country"},
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": "Year", "type": "nominal", "title": "Year"},
+            {"field": "value", "type": "quantitative", "title": "Per Capita Spending (RM)"}
+          ]
+        }
+      }
+    ],
+    "config": {
+      "axisX": {
+        "domain": false,
+        "labelAngle": 25,
+        "tickColor": "black",
+        "title": null
+      },
+      "view": {"stroke": null}
+    }
+  }
   ],
   "encoding": {
     "color": {
       "field": "Country",
       "type": "nominal",
       "scale": {
-        "domain": ["Singapore", "Indonesia", "China", "Thailand", "Brunei", "India", "South Korea", "Japan", "United Kingdom", "Australia"],
-        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "black", "#17becf"]
+        "domain": [
+          "Singapore",
+          "Indonesia",
+          "China",
+          "Thailand",
+          "Brunei",
+          "India",
+          "South Korea",
+          "Japan",
+          "United Kingdom",
+          "Australia"
+        ],
+        "range": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#D5B60A",
+          "#9467bd",
+          "#8c564b",
+          "#e377c2",
+          "#7f7f7f",
+          "black",
+          "#17becf"
+        ]
       },
       "legend": {"title": "Country"}
+    },
+    "opacity": {
+      "value": 0.5
     }
   },
   "layer": [
@@ -30,25 +172,23 @@
       }
     },
     {
-      "mark": "line",
+      "mark": {"type": "line", "strokeWidth": 10 },
       "encoding": {
         "x": {
-          "type": "nominal", 
+          "type": "nominal",
           "field": "Year",
           "axis": {
             "labelFontWeight": "bold",
             "labelFont": "Arial",
-            "labelFontSize": 12 
-
+            "labelFontSize": 12
           }
         },
         "y": {
           "type": "quantitative",
           "field": "value",
           "axis": {"title": "Per Capita Spending (RM)"},
-          "scale": {"domain": [1500, 6000]}  
+          "scale": {"domain": [1500, 6000]}
         },
-        "color": {"type": "nominal", "field": "Country"},
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
           {"field": "Year", "type": "nominal", "title": "Year"},
@@ -58,7 +198,12 @@
     }
   ],
   "config": {
-    "axisX": {"domain": false, "labelAngle": 25, "tickColor": "black", "title": null},
+    "axisX": {
+      "domain": false,
+      "labelAngle": 25,
+      "tickColor": "black",
+      "title": null
+    },
     "view": {"stroke": null}
   }
 }

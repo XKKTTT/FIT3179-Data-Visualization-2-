@@ -62,7 +62,7 @@
         "color": "#000"
       },
       "encoding": {
-        "text": {"value": "Country-specific tourism characteristic goods"},
+        "text": {"value": "Since 2011, Country-specific tourism characteristic goods"},
         "x": {"value": 150},
         "y": {"value": 350}
       }
@@ -80,7 +80,7 @@
         "color": "#000"
       },
       "encoding": {
-        "text": {"value": "contributes most to tourism revenue"},
+        "text": {"value": "has contributed the most to tourism revenue"},
         "x": {"value": 150},
         "y": {"value": 370}
       }
