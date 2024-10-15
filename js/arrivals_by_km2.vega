@@ -83,7 +83,7 @@
       "encoding": {
         "shape": {"field": "geo", "type": "geojson"},
         "color": {
-          "title": "Arrivals Per Km Squared (log)",
+          "title": "Arrivals Per Km Squared",
           "field": "arrivals_per_km2",
           "type": "quantitative",
           "scale": {
@@ -94,7 +94,7 @@
           "legend": {
             "format": ".2s",
             "orient": "bottom-right",
-            "titleFontSize": 14,
+            "titleFontSize": 12,
             "labelFontSize": 12,
             "labelFont": "Montserrat",
             "symbolSize": 200,
@@ -164,5 +164,6 @@
     }
   ],
   "config": {
+    
   }
 }

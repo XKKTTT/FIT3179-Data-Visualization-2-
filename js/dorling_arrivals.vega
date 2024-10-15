@@ -151,8 +151,8 @@
       "type": "text",
       "encode": {
         "enter": {
-          "x": {"value": 900},  
-          "y": {"value": 300},   
+          "x": {"value": 1000},  
+          "y": {"value": 400},   
           "text": {"value": "Most Malaysian visitors"}, 
           "fontSize": {"value": 15},
           "fontWeight": {"value": "bold"},
@@ -166,8 +166,8 @@
       "type": "text",
       "encode": {
         "enter": {
-          "x": {"value": 920},  
-          "y": {"value": 320},   
+          "x": {"value": 1020},  
+          "y": {"value": 420},   
           "text": {"value": "are of Asian origin"}, 
           "fontSize": {"value": 15},
           "fontWeight": {"value": "bold"},

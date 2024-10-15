@@ -23,8 +23,7 @@
         "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
         "format": {"type": "topojson", "feature": "states"}
       },
-      "mark": {"type": "geoshape", "fill": "lightgreen", "stroke": "black","strokeWidth": 1
-    }
+      "mark": {"type": "geoshape", "fill": "lightgreen", "stroke": "black", "strokeWidth": 1}
     },
     {
       "data": {
@@ -35,10 +34,11 @@
         {
           "calculate": "toNumber(replace(datum.arrivals, ',', ''))",
           "as": "arrivals_numeric"
-        },            
+        },
         {"filter": "datum.year == Year_selection"}
       ],
       "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
@@ -56,12 +56,38 @@
             "titleFontWeight": "bold",
             "padding": 10
           }
-        },        
+        },
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
           {"field": "arrivals_numeric", "type": "quantitative", "title": "Number of Guests"}
         ]
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "dy": -5,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "fill": "black"
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {
+          "field": "custom_capital",
+          "type": "nominal"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.state == 'Johor' ? 'Johor Bahru' : datum.state == 'Selangor' ? 'Shah Alam' : datum.state == 'Penang' ? 'George Town' : datum.state == 'Kedah' ? 'Alor Setar' : datum.state == 'Perak' ? 'Ipoh' : datum.state == 'Kelantan' ? 'Kota Bharu' : datum.state == 'Sabah' ? 'Kota Kinabalu' : datum.state == 'Sarawak' ? 'Kuching' : datum.state == 'Negeri Sembilan' ? 'Seremban' : datum.state == 'Pahang' ? 'Kuantan' : 'Kuala Lumpur'",
+          "as": "custom_capital"
+        }
+      ]
     }
   ]
 }

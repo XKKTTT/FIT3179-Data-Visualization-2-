@@ -28,6 +28,7 @@
             </div>
         </section>
 
+
         <section id="travelStatistics">
             <div class="visualization">
                 <h2> Since 2020: Total Global Visitors to Malaysia </h2>
@@ -45,6 +46,13 @@
                     vegaEmbed('#arrivalsSOE', "./js/arrivals_by_km2.vega").catch(console.error);
                 </script>
             </div>
+
+            <section id="description">
+                <div class="text-section">
+                    <p>There exists a large range, states like Selangor, Melaka and Penang dwarfs states like Terangganu in entries and hotel stays</p>
+                </div>
+            </section>
+
             <div class="visualization">
                 <h2>States with the Highest Number of Hotel Guests</h2>
                 <div id="hotelGuests"></div>
@@ -70,6 +78,8 @@
                     </script>
                 </div>
 
+               
+
                 <div class="visualization">
                     <h2>Average Tourist Spending Per Day By Top 10 Markets</h2>
                     <div id="rad_plot"></div>
@@ -79,15 +89,13 @@
                 </div>
             </div>
 
+            <section id="description">
+                <div class="text-section">
+                    <p>There exists a large range, states like Selangor, Melaka and Penang dwarfs states like Terangganu in entries and hotel stays</p>
+                </div>
+            </section>
 
 
-            <div class="visualization">
-                <h2>Travel within ASEAN</h2>
-                <div id="arc"></div>
-                <script type="text/javascript">
-                    vegaEmbed('#arc', "./js/asean_travel_arc.vega").catch(console.error);
-                </script>
-            </div>
             <div class="visualization">
                 <h2>Tourism Revenue Broken into Categories</h2>
                 <div id="map2"></div>
@@ -95,6 +103,7 @@
                     vegaEmbed('#map2', "./js/revenue_streamgraph.json").catch(console.error);
                 </script>
             </div>
+
             <div class="visualization">
                 <h2>Top 10 Markets Spending Per Capita in Malaysia</h2>
                 <div id="parallel"></div>
@@ -102,8 +111,24 @@
                     vegaEmbed('#parallel', "./js/parallel_plot.vega").catch(console.error);
                 </script>
             </div>
+
+
+        <section id="description">
+            <div class="text-section">
+                <p>Considering travel within ASEAN, Malaysia has the most outgoing and ingoing arrivals with Singapore </p>
+            </div>
         </section>
     </main>
+    
+            <div class="visualization">
+                <h2>Travel within ASEAN</h2>
+                <div id="arc"></div>
+                <script type="text/javascript">
+                    vegaEmbed('#arc', "./js/asean_travel_arc.vega").catch(console.error);
+                </script>
+            </div>
+        </section>
+
 
     <footer>
         <div id="contact">
