@@ -7,7 +7,7 @@
   "signals": [
     {
       "name": "selectedYear",
-      "value": 2020,
+      "value": 2023,
       "bind": {
         "input": "range",
         "min": 2020,

@@ -195,13 +195,38 @@
           {"field": "value", "type": "quantitative", "title": "Per Capita Spending (RM)"}
         ]
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 16,
+        "font": "Arial",
+        "color": "black"
+      },
+      "encoding": {
+        "text": {"value": "The UK per capita spending increased sharply by 1125 MYR in 2018 "},
+        "x": {"value": 200},  
+        "y": {"value": 50}   
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {"value": 350},  
+        "y": {"value": 70},  
+        "x2": {"value": 600}, 
+        "y2": {"value": 120}, 
+        "color": {"value": "grey"},
+        "size": {"value": 2}
+      }
     }
   ],
   "config": {
     "axisX": {
       "domain": false,
       "labelAngle": 25,
-      "tickColor": "black",
+      "tickColor": "#1f77b4",
       "title": null
     },
     "view": {"stroke": null}
