@@ -18,18 +18,3 @@ This project visualises global travel flows both **to and from Malaysia**, showc
 
 ---
 
-## 🗂️ Repository Structure
-/
-├── README.md
-├── data/
-│ ├── raw/ # original datasets
-│ ├── processed/ # cleaned and curated
-├── notebooks/ # Jupyter analysis notebooks
-├── src/
-│ ├── scripts/ # data cleaning, transformation
-│ ├── viz/ # visualization functions
-│ └── dashboard/ # interactive UI code
-├── docs/ # documentation, methods
-├── LICENSE
-└── CONTRIBUTING.md
-
